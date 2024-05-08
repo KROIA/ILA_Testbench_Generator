@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
 	ui.setupUi(this);
 	m_ribbon = new RibbonImpl(ui.ribbon_widget);
+	setWindowTitle("ILA Testbench Generator");
 	//
 	//ui.pushButton->setIcon(RibbonWidget::DefaultIconLoader::getIcon(":/icons/arrowCClockwise.png"));
 	////ui.pushButton->setIcon(QIcon(":/icons/live_folder_2.png"));
@@ -29,8 +30,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-	m_infoWidget->close();
-	delete m_infoWidget;
+	if (m_infoWidget)
+	{
+		m_infoWidget->close();
+		delete m_infoWidget;
+	}
 	delete m_ribbon;
 }
 
