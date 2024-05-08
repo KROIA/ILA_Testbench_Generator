@@ -36,11 +36,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::onLoad()
 {
-	m_loadPath = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Files (*.*)"));
+	m_loadPath = QFileDialog::getOpenFileName(this, tr("Open a CSV file, exported from the ILA Logic analyzer"), "", tr("Files (*.csv)"));
 }
 void MainWindow::onSave()
 {
-	m_savePath = QFileDialog::getSaveFileName(this, tr("Save File"), "", tr("Files (*.*)"));
+	m_savePath = QFileDialog::getSaveFileName(this, tr("Save testbench signal generator block"), "", tr("Files (*.*)"));
 	if(m_savePath.isEmpty())
 		return;
 	ILA_Testbench_Generator::IlaDataImport dataImport;
